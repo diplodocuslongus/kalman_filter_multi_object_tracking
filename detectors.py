@@ -45,7 +45,8 @@ class Detectors(object):
         """
 
         # Convert BGR to GRAY
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = frame.copy()
+        # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         if (debug == 1):
             cv2.imshow('gray', gray)
@@ -66,7 +67,7 @@ class Detectors(object):
         ret, thresh = cv2.threshold(edges, 127, 255, 0)
 
         # Find contours
-        _, contours, hierarchy = cv2.findContours(thresh,
+        contours, hierarchy = cv2.findContours(thresh,
                                                   cv2.RETR_EXTERNAL,
                                                   cv2.CHAIN_APPROX_SIMPLE)
 

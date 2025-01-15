@@ -50,6 +50,7 @@ def main():
     while(True):
         # Capture frame-by-frame
         ret, frame = cap.read()
+        # print(ret,frame)
 
         # Make copy of original frame
         orig_frame = copy.copy(frame)
