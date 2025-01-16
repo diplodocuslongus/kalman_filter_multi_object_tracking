@@ -3,8 +3,8 @@
     File Description  : Tracker Using Kalman Filter & Hungarian Algorithm
     Author            : Srini Ananthakrishnan
     Date created      : 07/14/2017
-    Date last modified: 07/16/2017
-    Python Version    : 2.7
+    Date last modified: 16/01/2025
+    Python Version    : 3.10
 '''
 
 # Import python libraries

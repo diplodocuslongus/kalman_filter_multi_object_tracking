@@ -4,8 +4,8 @@
                         and Hungarian Algorithm
     Author            : Srini Ananthakrishnan
     Date created      : 07/14/2017
-    Date last modified: 07/16/2017
-    Python Version    : 2.7
+    Date last modified: 16/01/2025
+    Python Version    : 3.10
 '''
 
 # Import python libraries
@@ -18,12 +18,12 @@ from tracker import Tracker
 def main():
     """Main function for multi object tracking
     Usage:
-        $ python2.7 objectTracking.py
+        $ python objectTracking.py
     Pre-requisite:
-        - Python2.7
+        - Python 3.10
         - Numpy
         - SciPy
-        - Opencv 3.0 for Python
+        - Opencv 4.x for Python
     Args:
         None
     Return:
