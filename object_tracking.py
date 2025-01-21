@@ -37,6 +37,11 @@ def main():
     detector = Detectors()
 
     # Create Object Tracker
+    # initialized with:
+    # dist_thresh (max dist btwn detected and estim, in pixel), 
+    # max_frames_to_skip, 
+    # max_trace_length
+    # trackIdCount: start ID for distinct tracked objects (can start at any number!)
     tracker = Tracker(160, 30, 5, 100)
 
     # Variables initialization

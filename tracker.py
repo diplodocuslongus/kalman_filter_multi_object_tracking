@@ -49,7 +49,7 @@ class Tracker(object):
                          track will be deleted and new track is created
             max_frames_to_skip: maximum allowed frames to be skipped for
                                 the track object undetected
-            max_trace_lenght: trace path history length
+            max_trace_length: trace path history length
             trackIdCount: identification of each track object
         Return:
             None
@@ -79,17 +79,22 @@ class Tracker(object):
             None
         """
 
+        print(f'Updating, trackIdCount = {self.trackIdCount}')
         # Create tracks if no tracks vector found
+        # done at the beginning, once objects are detected
+        # can be done again is all tracks are deleted (no more objects for some time then obj are again detected)
         if (len(self.tracks) == 0):
             for i in range(len(detections)):
                 track = Track(detections[i], self.trackIdCount)
                 self.trackIdCount += 1
+                print(f'trackIdCount = {self.trackIdCount}')
                 self.tracks.append(track)
 
         # Calculate cost using sum of square distance between
         # predicted vs detected centroids
         N = len(self.tracks)
         M = len(detections)
+        print(f'nb tracks (estimations): {N} and detections  {M}')
         cost = np.zeros(shape=(N, M))   # Cost matrix
         for i in range(len(self.tracks)):
             for j in range(len(detections)):
@@ -111,6 +116,7 @@ class Tracker(object):
         row_ind, col_ind = linear_sum_assignment(cost)
         for i in range(len(row_ind)):
             assignment[row_ind[i]] = col_ind[i]
+        print(f'assignment= {assignment}')
 
         # Identify tracks with no assignment, if any
         un_assigned_tracks = []
